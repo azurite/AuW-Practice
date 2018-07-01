@@ -7,6 +7,7 @@ import java.io.PrintStream;
 import static junit.framework.TestCase.assertEquals;
 
 import BonusExercises.*;
+import Pvw.*;
 
 public class test extends testSetup {
 
@@ -301,6 +302,66 @@ public class test extends testSetup {
         init(outPath);
 
         SantaClaus.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void CoinTossing_Sample() throws FileNotFoundException {
+        String inPath = "testCases/CoinTossing/sample.in";
+        String outPath = "testCases/CoinTossing/sample.out";
+
+        init(outPath);
+
+        CoinTossing.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void CoinTossing_Test1() throws FileNotFoundException {
+        String inPath = "testCases/CoinTossing/test1.in";
+        String outPath = "testCases/CoinTossing/test1.out";
+
+        init(outPath);
+
+        CoinTossing.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void CoinTossing_Test2() throws FileNotFoundException {
+        String inPath = "testCases/CoinTossing/test2.in";
+        String outPath = "testCases/CoinTossing/test2.out";
+
+        init(outPath);
+
+        CoinTossing.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void CoinTossing_Test3() throws FileNotFoundException {
+        String inPath = "testCases/CoinTossing/test3.in";
+        String outPath = "testCases/CoinTossing/test3.out";
+
+        init(outPath);
+
+        CoinTossing.read_and_solve(
                 new FileInputStream(inPath),
                 new PrintStream(out)
         );
