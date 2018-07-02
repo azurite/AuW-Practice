@@ -428,4 +428,79 @@ public class test extends testSetup {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void KingdomDefense_Sample() throws FileNotFoundException {
+        String inPath = "testCases/KingdomDefense/sample.in";
+        String outPath = "testCases/KingdomDefense/sample.out";
+
+        init(outPath);
+
+        KingdomDefense.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void KingdomDefense_Test1() throws FileNotFoundException {
+        String inPath = "testCases/KingdomDefense/test1.in";
+        String outPath = "testCases/KingdomDefense/test1.out";
+
+        init(outPath);
+
+        KingdomDefense.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void KingdomDefense_Test2() throws FileNotFoundException {
+        String inPath = "testCases/KingdomDefense/test2.in";
+        String outPath = "testCases/KingdomDefense/test2.out";
+
+        init(outPath);
+
+        KingdomDefense.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void KingdomDefense_Test3() throws FileNotFoundException {
+        String inPath = "testCases/KingdomDefense/test3.in";
+        String outPath = "testCases/KingdomDefense/test3.out";
+
+        init(outPath);
+
+        KingdomDefense.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void KingdomDefense_Test4() throws FileNotFoundException {
+        String inPath = "testCases/KingdomDefense/test4.in";
+        String outPath = "testCases/KingdomDefense/test4.out";
+
+        init(outPath);
+
+        KingdomDefense.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
