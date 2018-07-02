@@ -398,4 +398,34 @@ public class test extends testSetup {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void Tetris_Sample() throws FileNotFoundException {
+        String inPath = "testCases/Tetris/sample.in";
+        String outPath = "testCases/Tetris/sample.out";
+
+        init(outPath);
+
+        Tetris.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void Tetris_Test() throws FileNotFoundException {
+        String inPath = "testCases/Tetris/test.in";
+        String outPath = "testCases/Tetris/test.out";
+
+        init(outPath);
+
+        Tetris.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
