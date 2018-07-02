@@ -368,4 +368,34 @@ public class test extends testSetup {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void ShoppingTrip_Sample() throws FileNotFoundException {
+        String inPath = "testCases/ShoppingTrip/sample.in";
+        String outPath = "testCases/ShoppingTrip/sample.out";
+
+        init(outPath);
+
+        ShoppingTrip.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void ShoppingTrip_Sample2() throws FileNotFoundException {
+        String inPath = "testCases/ShoppingTrip/sample2.in";
+        String outPath = "testCases/ShoppingTrip/sample2.out";
+
+        init(outPath);
+
+        ShoppingTrip.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
