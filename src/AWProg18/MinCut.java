@@ -1,4 +1,4 @@
-package BonusExercises;
+package AWProg18;
 
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -15,7 +15,7 @@ public class MinCut {
             this.height = height;
         }
 
-        public static int find(List<BonusExercises.MinCut.Set> sets, int v) {
+        public static int find(List<AWProg18.MinCut.Set> sets, int v) {
             int i = v;
             ArrayList<Integer> toUpdate = new ArrayList<Integer>();
 
@@ -31,13 +31,13 @@ public class MinCut {
             return sets.get(v).parent;
         }
 
-        public static void union(List<BonusExercises.MinCut.Set> sets, int v, int w) {
+        public static void union(List<AWProg18.MinCut.Set> sets, int v, int w) {
             int vRoot = find(sets, v);
             int wRoot = find(sets, w);
 
             if(vRoot != wRoot) {
-                BonusExercises.MinCut.Set vSet = sets.get(vRoot);
-                BonusExercises.MinCut.Set wSet = sets.get(wRoot);
+                AWProg18.MinCut.Set vSet = sets.get(vRoot);
+                AWProg18.MinCut.Set wSet = sets.get(wRoot);
 
                 if(vSet.height < wSet.height) {
                     vSet.parent = wRoot;

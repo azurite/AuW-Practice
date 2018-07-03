@@ -1,4 +1,4 @@
-package BonusExercises;
+package AWProg18;
 
 import java.io.InputStream;
 import java.io.PrintStream;

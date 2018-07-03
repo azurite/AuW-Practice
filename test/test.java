@@ -6,7 +6,8 @@ import java.io.PrintStream;
 
 import static junit.framework.TestCase.assertEquals;
 
-import BonusExercises.*;
+import AWProg17.*;
+import AWProg18.*;
 import Pvw.*;
 
 public class test extends testSetup {
@@ -512,6 +513,36 @@ public class test extends testSetup {
         init(outPath);
 
         ImportantBridges.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void ImportantStops_Sample() throws FileNotFoundException {
+        String inPath = "testCases/ImportantStops/sample.in";
+        String outPath = "testCases/ImportantStops/sample.out";
+
+        init(outPath);
+
+        ImportantStops.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void ImportantStops_Test1() throws FileNotFoundException {
+        String inPath = "testCases/ImportantStops/test1.in";
+        String outPath = "testCases/ImportantStops/test1.out";
+
+        init(outPath);
+
+        ImportantStops.read_and_solve(
                 new FileInputStream(inPath),
                 new PrintStream(out)
         );
