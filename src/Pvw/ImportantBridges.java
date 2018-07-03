@@ -45,8 +45,8 @@ public class ImportantBridges {
     private static boolean[] isArtVertex;
     private static ArrayList<Pair> bridges;
 
-    private static int dfs_visit(ArrayList<Integer>[] adjList, int v) {
-        num = num + 1;
+    private static void dfs_visit(ArrayList<Integer>[] adjList, int v) {
+        num++;
         dfs[v] = num;
         low[v] = dfs[v];
 
@@ -54,18 +54,14 @@ public class ImportantBridges {
 
         for(int w : adjList[v]) {
             if(dfs[w] == 0) {
-
-                children = children + 1;
+                children++;
                 parent[w] = v;
-                int val = dfs_visit(adjList, w);
 
-                if(parent[v] != NULL && val >= dfs[v]) {
-                    isArtVertex[v] = true;
-                }
+                dfs_visit(adjList, w);
 
-                low[v] = Math.min(low[v], val);
+                low[v] = Math.min(low[v], low[w]);
 
-                if(parent[v] == NULL && children >= 2) {
+                if((parent[v] != NULL && low[w] >= dfs[v]) || (parent[v] == NULL && children >= 2)) {
                     isArtVertex[v] = true;
                 }
 
@@ -75,18 +71,6 @@ public class ImportantBridges {
             }
             else if(w != parent[v]) {
                 low[v] = Math.min(low[v], dfs[w]);
-            }
-        }
-
-        return low[v];
-    }
-
-    private static void find_AV_Bridges(ArrayList<Integer>[] adjList) {
-        num = 0;
-
-        for(int i = 0; i < adjList.length; i++) {
-            if(dfs[i] == 0) {
-                dfs_visit(adjList, i);
             }
         }
     }
@@ -110,6 +94,7 @@ public class ImportantBridges {
         }
 
         // initialize data structures
+        num = 0;
         dfs = new int[n];
         low = new int[n];
         parent = new int[n];
@@ -121,7 +106,7 @@ public class ImportantBridges {
         }
 
         // find all articulation points and bridges
-        find_AV_Bridges(adjList);
+        dfs_visit(adjList, 0);
 
         // sort bridges lexicographically
         Collections.sort(bridges);
