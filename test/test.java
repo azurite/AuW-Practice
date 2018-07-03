@@ -503,4 +503,19 @@ public class test extends testSetup {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void ImportantBridges_Sample() throws FileNotFoundException {
+        String inPath = "testCases/ImportantBridges/sample.in";
+        String outPath = "testCases/ImportantBridges/sample.out";
+
+        init(outPath);
+
+        ImportantBridges.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
