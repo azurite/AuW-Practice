@@ -549,4 +549,49 @@ public class test extends testSetup {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void ChristmasTree_Sample() throws FileNotFoundException {
+        String inPath = "testCases/ChristmasTree/sample.in";
+        String outPath = "testCases/ChristmasTree/sample.out";
+
+        init(outPath);
+
+        ChristmasTree.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void ChristmasTree_Test1() throws FileNotFoundException {
+        String inPath = "testCases/ChristmasTree/test1.in";
+        String outPath = "testCases/ChristmasTree/test1.out";
+
+        init(outPath);
+
+        ChristmasTree.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void ChristmasTree_Test2() throws FileNotFoundException {
+        String inPath = "testCases/ChristmasTree/test2.in";
+        String outPath = "testCases/ChristmasTree/test2.out";
+
+        init(outPath);
+
+        ChristmasTree.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
