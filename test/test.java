@@ -594,4 +594,64 @@ public class test extends testSetup {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void ShrinkingArray_Sample() throws FileNotFoundException {
+        String inPath = "testCases/ShrinkingArray/sample.in";
+        String outPath = "testCases/ShrinkingArray/sample.out";
+
+        init(outPath);
+
+        ShrinkingArray.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void ShrinkingArray_Test1() throws FileNotFoundException {
+        String inPath = "testCases/ShrinkingArray/test1.in";
+        String outPath = "testCases/ShrinkingArray/test1.out";
+
+        init(outPath);
+
+        ShrinkingArray.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void ShrinkingArray_Test2() throws FileNotFoundException {
+        String inPath = "testCases/ShrinkingArray/test2.in";
+        String outPath = "testCases/ShrinkingArray/test2.out";
+
+        init(outPath);
+
+        ShrinkingArray.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void ShrinkingArray_Test3() throws FileNotFoundException {
+        String inPath = "testCases/ShrinkingArray/test3.in";
+        String outPath = "testCases/ShrinkingArray/test3.out";
+
+        init(outPath);
+
+        ShrinkingArray.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
