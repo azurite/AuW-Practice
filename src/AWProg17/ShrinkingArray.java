@@ -46,6 +46,9 @@ public class ShrinkingArray {
         double[][] DP = new double[n][n];
         double p_left, p_right;
 
+        // TODO
+        // what if k == n ???
+
         for(int i = 0; i <= k; i++) {
             for(int j = n - 1; j >= n - 1 - k; j--) {
                 if(i + n - 1 - j <= k) {
