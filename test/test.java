@@ -654,4 +654,34 @@ public class test extends testSetup {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void UnequalWedding_Sample() throws FileNotFoundException {
+        String inPath = "testCases/UnequalWedding/sample.in";
+        String outPath = "testCases/UnequalWedding/sample.out";
+
+        init(outPath);
+
+        UnequalWedding.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void UnequalWedding_Test1() throws FileNotFoundException {
+        String inPath = "testCases/UnequalWedding/test1.in";
+        String outPath = "testCases/UnequalWedding/test1.out";
+
+        init(outPath);
+
+        UnequalWedding.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
