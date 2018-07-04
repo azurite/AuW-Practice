@@ -35,9 +35,9 @@ public class KingdomDefense {
         return false;
     }
 
-    private static int edmondsKarp(int numVer, ArrayList<Integer>[] graph, int[][] capacity, int[][] flow) {
+    private static long edmondsKarp(int numVer, ArrayList<Integer>[] graph, int[][] capacity, int[][] flow) {
 
-        int maxFlow = 0;
+        long maxFlow = 0;
         int[] pred = new int[numVer];
 
         while(augPathExists(numVer, graph, capacity, flow, pred)) {
@@ -67,8 +67,8 @@ public class KingdomDefense {
         int l = sc.nextInt();
         int p = sc.nextInt();
 
-        // TODO
-        numVer = 0;
+        // l nodes plus source and sink
+        numVer = l + 2;
         graph =  (ArrayList<Integer>[]) new ArrayList[numVer];
 
         for(int i = 0; i < numVer; i++) {
@@ -78,7 +78,55 @@ public class KingdomDefense {
         capacity = new int[numVer][numVer];
         flow = new int[numVer][numVer];
 
+        long totalDemand = 0;
+        long minRequirements = 0;
 
+        // we always add up += capacity[x][y] because we do not support multi graphs
+        for(int i = 1; i <= l; i++) {
+            int gi = sc.nextInt();
+            int di = sc.nextInt();
+
+            graph[0].add(i);
+            graph[i].add(0);
+            capacity[0][i] += gi;
+
+            graph[i].add(numVer - 1);
+            graph[numVer - 1].add(i);
+            capacity[i][numVer - 1] += di;
+
+            totalDemand += di;
+        }
+
+        for(int i = 1; i <= p; i++) {
+            // plus 1 because input vertices are 0 indexed and we used 1 indexed nodes (0 = source here)
+            int fi = sc.nextInt() + 1;
+            int ti = sc.nextInt() + 1;
+            int minCi = sc.nextInt();
+            int maxCi = sc.nextInt();
+
+            graph[fi].add(numVer - 1);
+            graph[numVer - 1].add(fi);
+            capacity[fi][numVer - 1] += minCi;
+
+            graph[0].add(ti);
+            graph[ti].add(0);
+            capacity[0][ti] += minCi;
+
+            graph[fi].add(ti);
+            graph[ti].add(fi);
+            capacity[fi][ti] += maxCi - minCi;
+
+            minRequirements += minCi;
+        }
+
+        long maxFlow = edmondsKarp(numVer, graph, capacity, flow);
+
+        if(maxFlow >= totalDemand + minRequirements) {
+            out.println("yes");
+        }
+        else {
+            out.println("no");
+        }
     }
 
     public static void read_and_solve(InputStream in, PrintStream out) {
