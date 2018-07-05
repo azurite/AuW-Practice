@@ -684,4 +684,34 @@ public class test extends testSetup {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void Dominoes_Sample() throws FileNotFoundException {
+        String inPath = "testCases/Dominoes/sample.in";
+        String outPath = "testCases/Dominoes/sample.out";
+
+        init(outPath);
+
+        Dominoes.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void Dominoes_Test1() throws FileNotFoundException {
+        String inPath = "testCases/Dominoes/test1.in";
+        String outPath = "testCases/Dominoes/test1.out";
+
+        init(outPath);
+
+        Dominoes.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
