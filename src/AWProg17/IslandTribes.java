@@ -24,6 +24,18 @@ public class IslandTribes {
 
         double p_b_looses, p_h_looses, p_n_looses;
 
+        /**
+         * DP[i][j][k] := "probability that we have i bears, j hunters and k ninjas"
+         *
+         * To calculate DP[i][j][k] it is only possible for this constellation to arise from either
+         * (i + 1, j, k), (i, j + 1, k) or (i, j , k + 1) then we calculate the probability that i looses,
+         * j looses or k looses respectively and multiply it with the probability that the constellation before
+         * the fight would happen which is stored in DP[i + 1][j][k], DP[i][j + 1][k] and DP[i][j][k + 1] respectively.
+         *
+         * If we have tribes i,j,k and i looses to j then that probability is
+         * (i * j) / (i * j + i * k + j * k) or in other words the number of ways that someone from i and from j is
+         * drawn divided by all interesting events i.e. all possible ways to draw two members from different tribes.
+         * */
         for(int i = b; i >= 0; i--) {
             for(int j = h; j >= 0; j--) {
                 for(int k = n; k >= 0; k--) {
