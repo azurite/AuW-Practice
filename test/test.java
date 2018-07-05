@@ -714,4 +714,34 @@ public class test extends testSetup {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void DiningTable_Sample() throws FileNotFoundException {
+        String inPath = "testCases/DiningTable/sample.in";
+        String outPath = "testCases/DiningTable/sample.out";
+
+        init(outPath);
+
+        DiningTable.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void DiningTable_Test1() throws FileNotFoundException {
+        String inPath = "testCases/DiningTable/test1.in";
+        String outPath = "testCases/DiningTable/test1.out";
+
+        init(outPath);
+
+        DiningTable.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
