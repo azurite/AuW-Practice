@@ -744,4 +744,34 @@ public class test extends testSetup {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void IslandTribes_Sample() throws FileNotFoundException {
+        String inPath = "testCases/IslandTribes/sample.in";
+        String outPath = "testCases/IslandTribes/sample.out";
+
+        init(outPath);
+
+        IslandTribes.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void IslandTribes_Test1() throws FileNotFoundException {
+        String inPath = "testCases/IslandTribes/test1.in";
+        String outPath = "testCases/IslandTribes/test1.out";
+
+        init(outPath);
+
+        IslandTribes.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
