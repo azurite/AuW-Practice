@@ -819,4 +819,34 @@ public class test extends testSetup {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void Roulette_Sample() throws FileNotFoundException {
+        String inPath = "testCases/Roulette/sample.in";
+        String outPath = "testCases/Roulette/sample.out";
+
+        init(outPath);
+
+        Roulette.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void Roulette_Test1() throws FileNotFoundException {
+        String inPath = "testCases/Roulette/test1.in";
+        String outPath = "testCases/Roulette/test1.out";
+
+        init(outPath);
+
+        Roulette.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
