@@ -774,4 +774,49 @@ public class test extends testSetup {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void Jackpot_Sample() throws FileNotFoundException {
+        String inPath = "testCases/Jackpot/sample.in";
+        String outPath = "testCases/Jackpot/sample.out";
+
+        init(outPath);
+
+        Jackpot.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void Jackpot_Test1() throws FileNotFoundException {
+        String inPath = "testCases/Jackpot/test1.in";
+        String outPath = "testCases/Jackpot/test1.out";
+
+        init(outPath);
+
+        Jackpot.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void Jackpot_Test2() throws FileNotFoundException {
+        String inPath = "testCases/Jackpot/test2.in";
+        String outPath = "testCases/Jackpot/test2.out";
+
+        init(outPath);
+
+        Jackpot.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
