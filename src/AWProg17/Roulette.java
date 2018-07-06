@@ -32,7 +32,7 @@ public class Roulette {
         double p_win_game = zeros / (double)n;
 
         /**
-         * DP[i] := "probability that after i games we win at least k consecutive games"
+         * DP[i] := "probability that after i games we have won at least k consecutive games"
          * */
         double[] DP = new double[m + 1];
 
