@@ -849,4 +849,49 @@ public class test extends testSetup {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void VolumeEstimation_Sample() throws FileNotFoundException {
+        String inPath = "testCases/VolumeEstimation/sample.in";
+        String outPath = "testCases/VolumeEstimation/sample.out";
+
+        init(outPath);
+
+        VolumeEstimation.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void VolumeEstimation_Test1() throws FileNotFoundException {
+        String inPath = "testCases/VolumeEstimation/test1.in";
+        String outPath = "testCases/VolumeEstimation/test1.out";
+
+        init(outPath);
+
+        VolumeEstimation.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void VolumeEstimation_Test2() throws FileNotFoundException {
+        String inPath = "testCases/VolumeEstimation/test2.in";
+        String outPath = "testCases/VolumeEstimation/test2.out";
+
+        init(outPath);
+
+        VolumeEstimation.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
