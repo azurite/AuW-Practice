@@ -46,8 +46,19 @@ public class Roulette {
                 DP[i] = Math.pow(p_win_game, k);
             }
             else {
-                // either we already won at least k consecutive games in the previous i - 1 games
-                // otherwise we won the most recent k games but not the games before that
+                /**
+                 * Either we already won at least k consecutive games in the previous (i - 1) games and if not then
+                 * the only possibility left is that we won the most recent k games.
+                 * In order for the most recent k games to be the deciding contributor to our
+                 * "after i games we have won at least k consecutive games" requirement, we have to
+                 *
+                 * 1) loose the (i - k)th game (so our "consecutive win count" gets reset so to speak) and
+                 * 2) in the other (i - k - 1) games the number of consecutive wins is not allowed to exceed k
+                 *
+                 * thus if Pr("#consecutive wins after i games >= k") then
+                 * 1 - Pr("#consecutive wins after i games >= k") = Pr("#consecutive wins after i games < k")
+                 * ergo 1 - DP[i - k - 1] = Pr("#consecutive wins after i - k - 1 games < k")
+                 * */
                 DP[i] = DP[i - 1] + (1 - DP[i - k - 1]) * (1 - p_win_game) * Math.pow(p_win_game, k);
             }
         }
