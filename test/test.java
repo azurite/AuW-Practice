@@ -910,4 +910,19 @@ public class test extends testSetup {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void GreedyColor_Sample() throws FileNotFoundException {
+        String inPath = "testCases/GreedyColor/sample.in";
+        String outPath = "testCases/GreedyColor/sample.out";
+
+        init(outPath);
+
+        GreedyColor.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
