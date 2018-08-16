@@ -925,4 +925,19 @@ public class test extends testSetup {
 
         assertEquals(expected, out.toString().replace("\r", ""));
     }
+
+    @Test
+    public void PlacingKnights_Sample() throws FileNotFoundException {
+        String inPath = "testCases/PlacingKnights/sample.in";
+        String outPath = "testCases/PlacingKnights/sample.out";
+
+        init(outPath);
+
+        PlacingKnights.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
 }
