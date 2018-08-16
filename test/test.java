@@ -9,6 +9,7 @@ import static junit.framework.TestCase.assertEquals;
 import AWProg17.*;
 import AWProg18.*;
 import Pvw.*;
+import Misc.*;
 
 public class test extends testSetup {
 
@@ -888,6 +889,21 @@ public class test extends testSetup {
         init(outPath);
 
         VolumeEstimation.read_and_solve(
+                new FileInputStream(inPath),
+                new PrintStream(out)
+        );
+
+        assertEquals(expected, out.toString().replace("\r", ""));
+    }
+
+    @Test
+    public void EulerTrail_Sample() throws FileNotFoundException {
+        String inPath = "testCases/EulerTrail/sample.in";
+        String outPath = "testCases/EulerTrail/sample.out";
+
+        init(outPath);
+
+        EulerTrail.read_and_solve(
                 new FileInputStream(inPath),
                 new PrintStream(out)
         );
