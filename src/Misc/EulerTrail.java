@@ -96,15 +96,15 @@ public class EulerTrail {
         int curr_v, next_v;
 
         int[] oddVertices = new int[2];
-        oddVertices[0] = -1;
-        oddVertices[1] = -1;
+        oddVertices[0] = NULL;
+        oddVertices[1] = NULL;
 
         if(!hasEulerTrail(graph, oddVertices)) {
             out.println("no");
             return;
         }
 
-        if(oddVertices[0] != -1 && oddVertices[1] != -1) {
+        if(oddVertices[0] != NULL && oddVertices[1] != NULL) {
 
             int[] pred = findPath(graph, oddVertices[0], oddVertices[1]);
             curr_v = oddVertices[1];
